@@ -1,0 +1,117 @@
+import turtle
+# from turtle import Screen, Turtle
+
+# variables
+screen = turtle.Screen()
+screen.title(" Drawing @shivansh")
+screen.setup(700,700)
+
+t = turtle.Turtle("turtle")
+t.speed(-1)
+
+# color picker
+pen =turtle.Turtle()
+pen.speed(-1)
+pen.up()
+pen.goto(-330,330)
+pen.down()
+pen.circle(10)
+
+# red
+pen.color("red")
+pen.write("1",align="center",font=("Arial",10,"bold"))
+pen.color("black")
+pen.goto(-310,330)
+pen.circle(10)
+# blue
+pen.color("blue")
+pen.write("2",align="center",font=("Arial",10,"bold"))
+pen.color("black")
+pen.goto(-290,330)
+pen.circle(10)
+# green
+pen.color("green")
+pen.write("3",align="center",font=("Arial",10,"bold"))
+pen.color("black")
+pen.goto(-290,330)
+pen.circle(10)
+# black
+pen.color("black")
+pen.color("black")
+pen.goto(-270,330)
+pen.circle(10)
+pen.write("4",align="center",font=("Arial",10,"bold"))
+# yellow
+pen.color("black")
+pen.fd(20)
+pen.circle(10)
+pen.color("yellow")
+pen.write("5",align="center",font=("Arial",10,"bold"))
+# pink
+pen.color("black")
+pen.fd(20)
+pen.circle(10)
+pen.color("pink")
+pen.write("6",align="center",font=("Arial",10,"bold"))
+# purple
+pen.color("black")
+pen.fd(20)
+pen.circle(10)
+pen.color("purple")
+pen.write("7",align="center",font=("Arial",10,"bold"))
+
+pen.ht()
+
+# functions
+# drawing
+def dragging(x, y):  
+    t.ondrag(None)
+    t.setheading(t.towards(x, y))
+    t.goto(x, y)
+    t.ondrag(dragging)
+
+# clear
+def clickRight(x,y):
+    t.clear()
+
+# color functions
+def red():
+	t.color("red")
+def blue():
+	t.color("blue")
+def green():
+	t.color("green")
+def black():
+	t.color("black")
+def yellow():
+	t.color("yellow")
+def pink():
+	t.color("pink")
+def purple():
+	t.color("purple")
+bob = 2
+def penthick(bob):
+	t.pensize(8)
+	
+
+def main():  
+	turtle.listen()
+    
+	t.ondrag(dragging)  
+
+	turtle.onscreenclick(lambda :clickRight(bob), 3)
+
+	# color
+	turtle.onkeypress(red,"1")
+	turtle.onkeypress(blue,"2")
+	turtle.onkeypress(green,"3")
+	turtle.onkeypress(black,"4")
+	turtle.onkeypress(yellow,"5")
+	turtle.onkeypress(pink,"6")
+	turtle.onkeypress(purple,"7")
+
+
+	screen.mainloop()   
+
+    
+main()
